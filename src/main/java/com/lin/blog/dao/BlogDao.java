@@ -3,6 +3,7 @@ package com.lin.blog.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lin.blog.pojo.model.Blog;
+import com.lin.blog.pojo.vo.BlogAdminQueryVO;
 import com.lin.blog.pojo.vo.BolgAllInfoVO;
 import com.lin.blog.pojo.vo.FirstPageBlogVO;
 import org.apache.ibatis.annotations.Param;
@@ -19,4 +20,5 @@ public interface BlogDao extends BaseMapper<Blog> {
 
     BolgAllInfoVO getBlogInfo(@Param("id") long id);
 
+    Page<BlogAdminQueryVO> getAdminQueryBlogs(Page<BlogAdminQueryVO> page);
 }

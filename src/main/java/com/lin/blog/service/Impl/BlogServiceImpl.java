@@ -5,13 +5,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lin.blog.dao.BlogDao;
 import com.lin.blog.exception.NotFoundException;
 import com.lin.blog.pojo.model.Blog;
+import com.lin.blog.pojo.vo.BlogAdminQueryVO;
 import com.lin.blog.pojo.vo.BolgAllInfoVO;
 import com.lin.blog.pojo.vo.FirstPageBlogVO;
 import com.lin.blog.service.BlogService;
 import com.lin.blog.utils.MarkdownUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 /**
  * @author lin945
@@ -24,8 +24,24 @@ public class BlogServiceImpl extends ServiceImpl<BlogDao, Blog> implements BlogS
 
     @Override
     public Page<FirstPageBlogVO> getAllFirstPageBlog(Page<FirstPageBlogVO> page) {
-
         return baseMapper.getFirstPageBlog(page);
+    }
+
+    @Override
+    public Page<BlogAdminQueryVO> getAdminBlogList(Page<BlogAdminQueryVO> page) {
+        return baseMapper.getAdminQueryBlogs(page);
+    }
+
+    @Override
+    public boolean saveBlog(Blog blog) {
+        int insert = baseMapper.insert(blog);
+        return insert==1;
+    }
+
+    @Override
+    public boolean updateBlog(Blog blog) {
+        int i = baseMapper.updateById(blog);
+        return i==1;
     }
 
     @Override

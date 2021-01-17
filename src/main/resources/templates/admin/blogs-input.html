@@ -6,7 +6,8 @@
     <title>文章管理</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
-    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css"
+          th:href="@{/lib/editormd/css/editormd.min.css}">
 </head>
 <body>
 
@@ -39,11 +40,11 @@
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
-            <a href="#" class="item active">发布</a>
-            <a href="#" class="teal item ">列表</a>
+            <a href="/admin/bloginput" class="item">发布</a>
+            <a href="/admin/blogs" class="teal item active">列表</a>
         </div>
-    </div>
 
+    </div>
 </div>
 <!--main -->
 <div class="m-container-small m-padded-tb-larger">
@@ -66,7 +67,7 @@
             </div>
             <div class="field">
                 <div id="md-content" style="z-index: 1!important;">
-                    <textarea name="content" id="content"  style="display: none">###hello world</textarea>
+                    <textarea name="content" id="content" style="display: none">###hello world</textarea>
                 </div>
             </div>
             <div class="two fields">
@@ -101,7 +102,7 @@
             </div>
             <div class="field">
                 <div class="ui left labeled input">
-                    <label  class="ui basic label main-color-pink">首图</label>
+                    <label class="ui basic label main-color-pink">首图</label>
                     <input type="text" name="indexPicture" placeholder="首页普片引用地址">
                 </div>
 
@@ -135,8 +136,8 @@
             <div class="ui error message"></div>
             <div class="ui right aligned container">
                 <button type="button" class="ui button " onclick="window.history.go(-1)">返回</button>
-            <button class="ui secondary button">保存</button>
-            <button class="ui main-color-border basic button">发布</button>
+                <button class="ui secondary button">保存</button>
+                <button class="ui main-color-border basic button">发布</button>
             </div>
         </form>
     </div>

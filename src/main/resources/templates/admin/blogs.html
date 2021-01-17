@@ -41,8 +41,8 @@
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
-            <a href="/admin/blogs" class="item">发布</a>
-            <a href="/admin/bloginput" class="teal item active">列表</a>
+            <a href="/admin/bloginput" class="item">发布</a>
+            <a href="/admin/blogs" class="teal item active">列表</a>
         </div>
 
     </div>
@@ -50,7 +50,7 @@
 <!--main -->
 <div class="m-container-small m-padded-tb-larger">
     <div class="ui container">
-        <form action="#" method="post" class="ui segment form">
+        <form action="#" method="post" class="ui secondary segment form">
             <div class="fields inline">
                 <div class="field">
                     <input type="text" name="title" placeholder="标题">
@@ -92,24 +92,29 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>刻意练习清单</td>
-                <td>认知升级</td>
-                <td>是</td>
-                <td>2020-11-11 00:00</td>
+            <tr th:each="blog,it:${page.getRecords()}">
+                <td th:text="${it.count}">1</td>
+                <td th:text="${blog.getTitle()}">刻意练习清单</td>
+                <td th:text="${blog.getType().getName()}">认知升级</td>
+                <td th:text="${blog.getRecommend()}">是</td>
+                <td th:text="${#dates.format(blog.getUpdateTime(),'yyyy-MM-dd HH:mm')}">2020-11-11 00:00</td>
                 <td>
                     <a href="#" class="ui mini main-color button basic">编辑</a>
                     <a href="#" class=" mini main-color-pink button basic ui">删除</a>
                 </td>
+            </tr>
+            </tbody>
             <tfoot>
             <tr>
                 <th colspan="6">
                     <div class="ui mini floated pagination menu">
-                        <a class=" item ">上一页</a>
-                        <a class=" item ">下一页</a>
+                        <a class=" item " th:href="@{/admin/blogs(pageNum=${page.hasPrevious()}?${page.getCurrent()-1}:1)}" th:unless="${page.getCurrent()==1}">上一页</a>
+                        <a class=" item " th:href="@{/admin/blogs(pageNum=${page.hasNext()}?${page.getCurrent()+1}:1)}" th:unless="${!page.hasNext()}">下一页</a>
+                        <div class="ui item" align="center">
+                            <p>第 <span th:text="${page.getCurrent()}"></span> 页，共 <span th:text="${page.getPages()}"></span> 页，有 <span th:text="${page.getTotal()}"></span> 篇文章</p>
+                        </div>
                     </div>
-                    <a href="#" class="ui mini main-color right floated  basic button">新增</a>
+                    <a href="#" class="ui mini main-color right floated  basic button" th:href="@{/admin/bloginput}">新增</a>
                 </th>
             </tr>
             </tfoot>

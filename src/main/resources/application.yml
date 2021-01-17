@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://118.24.8.46:3306/lin945?useUnicode=true&characterEncoding=utf-8
-    password: 147258369aa..
-    username: lin945
+    url: 
+    password:
+    username:
   thymeleaf:
     encoding: UTF-8
     cache: false

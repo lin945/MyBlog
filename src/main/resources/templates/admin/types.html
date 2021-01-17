@@ -55,7 +55,7 @@
 <br>
 <!--中间内容-->
 
-<div  class="m-padded-tb-big">
+<div class="m-padded-tb-big">
     <div class="ui container">
         <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
             <i class="close icon"></i>
@@ -74,30 +74,40 @@
                 <td th:text="${iterStat.count}">1</td>
                 <td th:text="${type.getName()}">我的故事</td>
                 <td>
-                    <a href="#" th:href="@{/admin/types/{id}/input(id=${type.getId()})}" class="ui mini teal basic button">编辑</a>
-                    <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.getId()})}"  onclick="return confirm('确定要删除该分类吗？三思啊! 删了可就没了！')" class="ui mini red basic button">删除</a>
+                    <a href="#" th:href="@{/admin/types/{id}/input(id=${type.getId()})}"
+                       class="ui mini teal basic button">编辑</a>
+                    <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.getId()})}"
+                       onclick="return confirm('确定要删除该分类吗？三思啊! 删了可就没了！')" class="ui mini red basic button">删除</a>
                 </td>
             </tr>
             </tbody>
             <tfoot>
             <tr>
-                <th colspan="6" >
+                <th colspan="6">
                     <div class="ui inverted divided stackable grid">
                         <div class="three wide column" align="center">
-                            <a class="item" th:href="@{/admin/types(pageNum=${page.hasPrevious()}?${page.getCurrent()-1}:1)}" th:unless="${page.getCurrent()==1}">上一页</a>
+                            <a class="item"
+                               th:href="@{/admin/types(pageNum=${page.hasPrevious()}?${page.getCurrent()-1}:1)}"
+                               th:unless="${page.getCurrent()==1}">上一页</a>
                         </div>
 
                         <div class="ten wide column" align="center">
-                            <p>第 <span th:text="${page.getCurrent()}"></span> 页，共 <span th:text="${page.getPages()}"></span> 页，有 <span th:text="${page.getTotal()}"></span> 个分类</p>
+                            <p>第 <span th:text="${page.getCurrent()}"></span> 页，共 <span
+                                    th:text="${page.getPages()}"></span> 页，有 <span th:text="${page.getTotal()}"></span>
+                                个分类</p>
                         </div>
 
                         <div class="three wide column" align="center">
-                            <a class="item" th:href="@{/admin/types(pageNum=${page.hasNext()}?${page.current+1}:${page.getCurrent()})}" th:unless="${!page.hasNext()}">下一页</a>
+                            <a class="item"
+                               th:href="@{/admin/types(pageNum=${page.hasNext()}?${page.current+1}:${page.getCurrent()})}"
+                               th:unless="${!page.hasNext()}">下一页</a>
                         </div>
                     </div>
                     <div align="center">
                         <a href="#" th:href="@{/admin/types/input}">
-                            <button type="button" class="ui teal button m-mobile-wide m-margin-top"><i class="pencil icon"></i>新增</button>
+                            <button type="button" class="ui teal button m-mobile-wide m-margin-top"><i
+                                    class="pencil icon"></i>新增
+                            </button>
                         </a>
                     </div>
                 </th>

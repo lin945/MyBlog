@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
 
 /**
  * @author lin945
@@ -37,7 +36,7 @@ public class TypeController {
     }
     //  新增分类
     @PostMapping("/types")
-    public String post( Type type, RedirectAttributes attributes) {
+    public String post(Type type, RedirectAttributes attributes) {
         Type type1 = typeService.getTypeByName(type.getName());
         if (type1 != null) {
             attributes.addFlashAttribute("message", "不能添加重复的分类");

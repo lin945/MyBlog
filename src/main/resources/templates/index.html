@@ -95,10 +95,10 @@
                     <div class="ui">
                         <div class="ui middle aligned two column grid">
                             <div class="column">
-                                <a href="#" class="ui  segment mini">上一页</a>
+                                <a href="#" th:href="@{/(pageNum=${pageInfo.getCurrent()-1})}" th:unless="${pageInfo.getCurrent()==1}" class="ui  segment mini">上一页</a>
                             </div>
                             <div class="right aligned column">
-                                <a href="#" class="ui  segment mini">下一页</a>
+                                <a href="#" th:href="@{/(pageNum=${pageInfo.getCurrent()+1})}" th:unless="${!pageInfo.hasNext()}" class="ui  segment mini">下一页</a>
                             </div>
                         </div>
                     </div>

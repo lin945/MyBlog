@@ -47,6 +47,22 @@
         from t_blog b,t_user u, t_type t
         where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
     </select>
+    <resultMap id="blog" type="com.lin.blog.pojo.vo.BlogAdminQueryVO">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="recommend" column="recommend"/>
+        <result property="published" column="published"/>
+        <result property="typeId" column="type_id"/>
+        <association property="type" javaType="com.lin.blog.pojo.model.Type">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+    <select id="getAdminQueryBlogs" resultMap="blog">
+        select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name from t_blog b left outer join
+        t_type t on b.type_id = t.id order by b.update_time desc
+    </select>
 
 
 </mapper>

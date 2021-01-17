@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分类</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+<nav class="main-bg-color ui inverted attached segment m-padded-tb-mini" th:replace="_fragments::menu(2)">
+    <div class="ui container">
+        <div class="ui inverted secondary menu stackable">
+            <h2 class="ui  item  m-text-space m-opacity-mini">林唯心啊❤</h2>
+            <a href="#" class="item m-item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="info icon"></i>关于</a>
+            <div class="right item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="search..."/>
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle inverted icon button m-right-top m-mobile-show">
+        <i class="icon sidebar"></i>
+    </a>
+</nav>
+
+<!--main -->
+<div class="m-container-small m-padded-tb-larger">
+    <div class="ui container">
+<!--        header-->
+        <div class="ui segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui header main-color-pink">分类</h3>
+                </div>
+                <div class="right aligned column">
+                    共 <h3 class="ui header blue m-inline-block "> 5 </h3>个分类
+                </div>
+            </div>
+        </div>
+<!--        分类标签-->
+        <div class="segment ui attached m-text m-padded-tb-large">
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button pink">哈哈</a>
+                <div class="ui basic  left pointing label circular pink">5</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+            <a href="#" class="circular ui basic  button ">没选全微分</a>
+            <div class="ui basic  left pointing label circular ">6</div>
+        </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选全微分</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="circular ui basic  button ">没选全微分</a>
+                <div class="ui basic  left pointing label circular ">6</div>
+            </div>
+        </div>
+<!--        文章-->
+        <div class="ui segment top attached main-color-border">
+            <div class="ui padded vertical segment m-padded-tb ">
+                <div class="ui mobile reversed grid stackable " >
+                    <div class="eleven wide column">
+                        <h3 class="ui header">标题</h3>
+                        <p class="m-text">这里是正文啊</p>
+                        <div class="ui grid stackable">
+                            <div class="eleven wide column">
+                                <div class="ui horizontal link list ">
+                                    <div class="item">
+                                        <img src="../static/img/img3.jpg" alt="null" class="ui avatar image"
+                                             style="width: 30px">
+                                        <div class="content"><a href="#" class="header">林唯心</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar">2020-11-11</i>
+                                    </div>
+                                    <div class="item"><i class="eye icon"></i>666</div>
+                                </div>
+                            </div>
+                            <div class="five wide right aligned column">
+                                <a href="#" class="ui basic teal label m-padded-mini m-text-thin"
+                                   target="_blank">认知升级</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="five wide  column">
+                        <a href="#" target="_blank">
+                            <img src="../static/img/img3.jpg" alt="" class="ui rounded image" >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui padded vertical segment m-padded-tb ">
+                <div class="ui mobile reversed grid stackable ">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">标题</h3>
+                        <p class="m-text">这里是正文啊</p>
+                        <div class="ui grid stackable">
+                            <div class="eleven wide column">
+                                <div class="ui horizontal link list ">
+                                    <div class="item">
+                                        <img src="../static/img/img3.jpg" alt="null" class="ui avatar image"
+                                             style="width: 30px">
+                                        <div class="content"><a href="#" class="header">林唯心</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar">2020-11-11</i>
+                                    </div>
+                                    <div class="item"><i class="eye icon"></i>666</div>
+                                </div>
+                            </div>
+                            <div class="five wide right aligned column">
+                                <a href="#" class="ui basic teal label m-padded-mini m-text-thin"
+                                   target="_blank">认知升级</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="five wide  column">
+                        <a href="#" target="_blank">
+                            <img src="../static/img/img3.jpg" alt="" class="ui rounded image" >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui padded vertical segment m-padded-tb ">
+                <div class="ui mobile reversed grid stackable">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">标题</h3>
+                        <p class="m-text">这里是正文啊</p>
+                        <div class="ui grid stackable">
+                            <div class="eleven wide column">
+                                <div class="ui horizontal link list ">
+                                    <div class="item">
+                                        <img src="../static/img/img3.jpg" alt="null" class="ui avatar image"
+                                             style="width: 30px">
+                                        <div class="content"><a href="#" class="header">林唯心</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar">2020-11-11</i>
+                                    </div>
+                                    <div class="item"><i class="eye icon"></i>666</div>
+                                </div>
+                            </div>
+                            <div class="five wide right aligned column">
+                                <a href="#" class="ui basic teal label m-padded-mini m-text-thin"
+                                   target="_blank">认知升级</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="five wide  column">
+                        <a href="#" target="_blank">
+                            <img src="../static/img/img3.jpg" alt="" class="ui rounded image" >
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="ui attached segment">
+            <div class="ui">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <a href="#" class="ui  segment mini">上一页</a>
+                    </div>
+                    <div class="right aligned column">
+                        <a href="#" class="ui  segment mini">下一页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="main-bg-color-no inverted ui vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided grid stackable">
+            <div class="three wide column">
+                <div class="ui link list inverted">
+                    <div class="item">
+                        <img src="../static/img/icon1.jpg" alt="wechat" class="ui image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui header inverted m-text-thin m-text-space m-opacity-mini">小标题1</h4>
+                <div class="ui link list inverted">
+                    <a href="#" class="item">hahah</a>
+                    <a href="#" class="item">hahah</a>
+                    <a href="#" class="item">hahah</a>
+                    <a href="#" class="item">hahah</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui header inverted m-text-thin m-text-space m-opacity-mini">联系我</h4>
+                <div class="ui link list inverted">
+                    <a href="#" class="item">QQ：2315554550</a>
+                    <a href="#" class="item">Github：lin945</a>
+                </div>
+            </div>
+            <div class="five wide column m-opacity-mini">
+                <h4 class="ui header inverted  m-text-thin m-text-space ">小标题3</h4>
+                <p>这里是一大长串文本</p></div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-space m-opacity-tiny">
+            power by lin945
+        </p>
+        <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+        <p id="hitokoto" class="m-opacity-tiny"><a href="#" id="hitokoto_text">:D 获取中...</a></p>
+    </div>
+</footer>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+</script>
+</body>
+</html>

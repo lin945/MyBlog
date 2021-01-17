@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments::head(~{::title})">
+    <title>博客详情</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<nav class="main-bg-color ui inverted attached segment m-padded-tb-mini" th:replace="_fragments::menu(1)">
+    <div class="ui container">
+        <div class="ui inverted secondary menu stackable">
+            <h2 class="ui  item  m-text-space m-opacity-mini">林唯心啊❤</h2>
+            <a href="#" class="item m-item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="item m-item m-mobile-hide"><i class="info icon"></i>关于</a>
+            <div class="right item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="search..."/>
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle inverted icon button m-right-top m-mobile-show">
+        <i class="icon sidebar"></i>
+    </a>
+</nav>
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 50%">
+    <img src="../static/images/bg.jpg" th:src="@{${blog.getFirstPicture()}}" alt="" class="ui m-bg image"
+         style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover">
+        <div class="ui container" style="position: relative ;bottom: -540px;">
+            <h2 class="m-font-size-title-large" align="center" th:text="${blog.getTitle()}">Markdown编辑</h2>
+            <div class="ui container" align="center">
+                <div class="ui horizontal link list" align="center">
+                    <div class="item">
+                        <div class="ui orange basic label" style="font-size: 7px" th:text="${blog.getFlag()}">原创</div>
+                    </div>
+                    <div class="item">
+                        <i class="user outline outline icon m-font-size-text-mini"></i>
+                        <a href="#" style="color: #ffffff;font-size: 15px" th:text="${blog.getNickname()}">ONESTAR</a>
+                    </div>
+                    <div class="item">
+                        <i class="calendar icon m-font-size-text-mini"></i>
+                        <span th:text="${#dates.format(blog.getCreateTime(),'yyyy-MM-dd')}" class="m-font-size-text-mini">2020-01-01</span>
+                    </div>
+                    <div class="item">
+                        <i class="clone icon m-font-size-text-mini"></i>
+                        <a href="#" target="_blank" style="color: #ffffff;font-size: 16px"
+                           th:text="${blog.getTypeName()}">我的故事</a>
+                    </div>
+                    <div class="item">
+                        <i class="eye icon m-font-size-text-mini"></i> <span th:text="${blog.getViews()}"
+                                                                             class="m-font-size-text-mini">2222</span>
+                    </div>
+                    <div class="item">
+                        <i class="comment outline icon m-font-size-text-mini"></i>
+                        <span th:text="${blog.getCommentCount()}" class="m-font-size-text-mini">2222</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--main -->
+<div id="waypoint" class="m-margin- animated fadeIn">
+    <div class="ui container m-opacity box-shadow-max">
+        <!-- 内容-->
+        <div class=" ui attached padded segment ">
+            <!--            正文-->
+            <div class="typo typo-selection m-padded-lr-responsive m-padded-tb js-toc-content" id="content"
+                 th:text="${blog.getContent()}">
+                <pre><code class="language-css">p {color: red}</code></pre>
+                <h1>中文网页重设与排版：<i class="serif">Typo.css</i></h1><br/>
+
+                <h2 id="tagline" class="serif">一致化浏览器排版效果，构建最适合中文阅读的网页排版</h2>
+
+                <ol id="table">
+                    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+                    <li><a href="#section2">排版实例</a>
+                        <ul>
+                            <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+                            <li><a href="#section2-2">例2：英文排版</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#section3">附录</a>
+                        <ul>
+                            <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+                            <li><a href="#appendix2">开源许可</a></li>
+                        </ul>
+                    </li>
+                </ol>
+                简介：根据古典小说记载，世上有人有妖，妖会与人相恋，妖寿命千年，人的寿命有限，人死了，妖活着。人会投胎转世，但投胎以后不记得上辈子的爱。妖如果痴情的话，就去找狐妖“购买”一项服务，让投胎转世的人回忆起前世的爱……狐妖红娘这个角色就为此而诞生。作品主要讲述了以红娘为职业的狐妖，在为前世恋人牵红线的过程中发生的一系列有趣、神秘的故事。
+            </div>
+            <div class="m-padded-lr-responsive m-padded-tb">
+                <div class="ui basic teal left pointing label" th:text="${blog.getFlag()}">
+                    标签
+                </div>
+            </div>
+            <!--            赞赏-->
+            <div class="ui center aligned segment basic">
+                <button id="payButton" class="ui basic main-color-pink button circular">赞赏</button>
+            </div>
+            <div class="ui flowing popup transition hidden pay">
+                <div class="ui basic label">
+                    <div class="ui images main-color-pink" style="font-size: inherit !important;">
+                        <div class="image">
+                            <img src="../static/img/icon1.jpg" alt="" class="ui image rounded bordered"
+                                 style="width: 120px">
+                            <div>支付宝</div>
+                        </div>
+                        <div class="image">
+                            <img src="../static/img/icon1.jpg" alt="" class="ui image rounded bordered"
+                                 style="width: 120px">
+                            <div>微信</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--        博客信息-->
+        <div class="ui attached message positive">
+            <div class="ui grid middle aligned">
+                <div class="eleven wide column">
+                    <ul class="list">
+                        <li>
+                            作者：林唯心
+                        </li>
+                        <li>时间：</li>
+                        <li>版权所有</li>
+                        <li>666</li>
+                    </ul>
+                </div>
+                <div class="five wide column">
+                    <img src="../static/img/ico.png" alt="" class="ui image bordered rounded right floated"
+                         style="width: 100px">
+                </div>
+            </div>
+        </div>
+        <!--            留言区域-->
+        <div id="comment-container" class="ui attached segment">
+            <div class="ui segment rounded main-color-pink-border">
+                <div class="ui small comments">
+                    <h3 class="ui dividing header">评论</h3>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="../static/img/ico.png" style="width: 40px" alt="avatar">
+                        </a>
+                        <div class="content">
+                            <a class="author">lin945</a>
+                            <div class="metadata">
+                                <span class="date">今天下午 5:42</span>
+                            </div>
+                            <div class="text">太赞了！</div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form ui ">
+                <div class="field m-mobile-wide">
+                    <textarea name="content" placeholder="请输入评论信息" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="fields">
+                    <div class="field m-mobile-wide">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="nickname" placeholder="昵称">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide">
+                        <div class="ui left icon input">
+                            <i class="icon mail"></i>
+                            <input type="text" name="email" placeholder="邮箱">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <button class="ui  basic button rounded  m-mobile-wide"><i class="edit icon"></i>确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="toolbar" class="m-fixed m-right-bottom m-padded" style="display: none">
+    <div class="ui vertical icon buttons ">
+        <button class="ui toc button blue">目录</button>
+        <a href="#comment-container" class="ui button main-color">留言</a>
+        <button class="ui wechat icon button main-color"><i class="ui weixin icon"></i></button>
+        <div id="toTop-button" class="ui button main-color"><i class="ui chevron up icon"></i></div>
+    </div>
+</div>
+<div class="ui toc-container flowing popup transition hidden pay" style="width: 250px">
+
+    <ol class="js-toc"></ol>
+
+</div>
+<br>
+<div class="ui popup hidden transition flowing wechatqr" id="qrcode">
+
+</div>
+<footer class="main-bg-color inverted ui vertical segment m-padded-tb-massive" th:replace="_fragments::footer">
+</footer>
+<th:block th:replace="_fragments::script">
+
+</th:block>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('#payButton').popup({
+        popup: $('.pay.popup'),
+        on: 'click',
+        position: 'bottom center'
+    });
+    $('.toc.button').popup({
+        popup: $('.toc-container.popup'),
+        on: 'click',
+        position: 'left center'
+    });
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+    $('.wechat').popup({
+        popup: $('.wechatqr'),
+        position: 'left center'
+    });
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "6666",
+        width: 120,
+        height: 120,
+        colorDark: "#ff35ab",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    $("#toTop-button").click(function () {
+        $(window).scrollTo(0, 500);
+    });
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function (direction) {
+            if (direction == 'down') {
+                $("#toolbar").show(100);
+            } else {
+                $("#toolbar").hide(500);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -41,7 +41,7 @@
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
-            <a href="/admin/bloginput" class="item">发布</a>
+            <a href="/admin/blog/input" class="item">发布</a>
             <a href="/admin/blogs" class="teal item active">列表</a>
         </div>
 
@@ -114,7 +114,7 @@
                             <p>第 <span th:text="${page.getCurrent()}"></span> 页，共 <span th:text="${page.getPages()}"></span> 页，有 <span th:text="${page.getTotal()}"></span> 篇文章</p>
                         </div>
                     </div>
-                    <a href="#" class="ui mini main-color right floated  basic button" th:href="@{/admin/bloginput}">新增</a>
+                    <a href="#" class="ui mini main-color right floated  basic button" th:href="@{/admin/blog/input}">新增</a>
                 </th>
             </tr>
             </tfoot>

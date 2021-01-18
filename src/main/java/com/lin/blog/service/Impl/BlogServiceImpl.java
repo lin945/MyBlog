@@ -4,13 +4,19 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lin.blog.dao.BlogDao;
 import com.lin.blog.exception.NotFoundException;
+import com.lin.blog.pojo.ao.CreateBlogAO;
 import com.lin.blog.pojo.model.Blog;
+import com.lin.blog.pojo.model.User;
 import com.lin.blog.pojo.vo.BlogAdminQueryVO;
 import com.lin.blog.pojo.vo.BolgAllInfoVO;
 import com.lin.blog.pojo.vo.FirstPageBlogVO;
 import com.lin.blog.service.BlogService;
+import com.lin.blog.utils.HttpContextUtil;
 import com.lin.blog.utils.MarkdownUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 
 /**
@@ -36,6 +42,16 @@ public class BlogServiceImpl extends ServiceImpl<BlogDao, Blog> implements BlogS
     public boolean saveBlog(Blog blog) {
         int insert = baseMapper.insert(blog);
         return insert==1;
+    }
+
+    @Override
+    public boolean CreateBlog(CreateBlogAO ao) {
+        Blog blog = new Blog();
+        BeanUtils.copyProperties(ao, blog);
+        User user = (User)HttpContextUtil.request().getSession().getAttribute("user");
+        blog.setUserId(user.getId());
+        blog.setViews(0);
+        return saveBlog(blog);
     }
 
     @Override

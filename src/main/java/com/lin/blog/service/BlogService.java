@@ -2,6 +2,7 @@ package com.lin.blog.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lin.blog.pojo.ao.CreateBlogAO;
 import com.lin.blog.pojo.model.Blog;
 import com.lin.blog.pojo.vo.BlogAdminQueryVO;
 import com.lin.blog.pojo.vo.BolgAllInfoVO;
@@ -32,6 +33,7 @@ public interface BlogService extends IService<Blog> {
      */
     boolean saveBlog(Blog blog);
 
+    boolean CreateBlog(CreateBlogAO ao);
     /**
      * 更新
      * @param blog

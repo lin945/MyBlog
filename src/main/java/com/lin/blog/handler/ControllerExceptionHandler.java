@@ -2,6 +2,7 @@ package com.lin.blog.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -29,4 +30,19 @@ public class ControllerExceptionHandler {
         modelAndView.setViewName("error/error");
         return modelAndView;
     }
+
+    @ExceptionHandler(BindException.class)
+    public ModelAndView exceptionHandler(HttpServletRequest request, BindException e) throws Exception {
+        log.error("request url:{} ,Exception : {}", request.getRequestURL(), e.getMessage());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("url", request.getRequestURL().toString());
+        StringBuilder stringBuilder = new StringBuilder();
+        e.getBindingResult().getAllErrors().forEach(i->{
+            stringBuilder.append(i.getDefaultMessage()).append(" ");
+        });
+        modelAndView.addObject("exception",stringBuilder);
+        modelAndView.setViewName("error/error");
+        return modelAndView;
+    }
+
 }

@@ -2053,3 +2053,39 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [admin
 2021-01-17 22:28:10.253 DEBUG 13100 --- [http-nio-8080-exec-5] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name from t_blog b left outer join t_type t on b.type_id = t.id order by b.update_time desc LIMIT ?
 2021-01-17 22:28:10.254 DEBUG 13100 --- [http-nio-8080-exec-5] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==> Parameters: 10(Long)
 2021-01-17 22:28:10.283 DEBUG 13100 --- [http-nio-8080-exec-5] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : <==      Total: 1
+2021-01-17 22:34:46.563  INFO 12584 --- [restartedMain] com.lin.blog.BlogApplication             : Starting BlogApplication using Java 1.8.0_191 on 林唯心 with PID 12584 (C:\Users\ASUS\IdeaProjects\blog\target\classes started by ASUS in C:\Users\ASUS\IdeaProjects\blog)
+2021-01-17 22:34:46.565 DEBUG 12584 --- [restartedMain] com.lin.blog.BlogApplication             : Running with Spring Boot v2.4.1, Spring v5.3.2
+2021-01-17 22:34:46.565  INFO 12584 --- [restartedMain] com.lin.blog.BlogApplication             : No active profile set, falling back to default profiles: default
+2021-01-17 22:34:49.226  INFO 12584 --- [restartedMain] com.lin.blog.BlogApplication             : Started BlogApplication in 3.041 seconds (JVM running for 3.824)
+2021-01-17 22:34:54.826 DEBUG 12584 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : ==>  Preparing: SELECT id,avatar,email,nickname,password,type,username,create_time,update_time FROM t_user WHERE (username = ? AND password = ?)
+2021-01-17 22:34:54.842 DEBUG 12584 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : ==> Parameters: root(String), 96e79218965eb72c92a549dd5a330112(String)
+2021-01-17 22:34:54.892 DEBUG 12584 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : <==      Total: 1
+2021-01-17 22:34:56.490 DEBUG 12584 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==>  Preparing: SELECT COUNT(1) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-01-17 22:34:56.490 DEBUG 12584 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==> Parameters: 
+2021-01-17 22:34:56.523 DEBUG 12584 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name from t_blog b left outer join t_type t on b.type_id = t.id order by b.update_time desc LIMIT ?
+2021-01-17 22:34:56.523 DEBUG 12584 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==> Parameters: 10(Long)
+2021-01-17 22:34:56.550 DEBUG 12584 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : <==      Total: 1
+2021-01-17 22:35:40.991  INFO 6652 --- [restartedMain] com.lin.blog.BlogApplication             : Starting BlogApplication using Java 1.8.0_191 on 林唯心 with PID 6652 (C:\Users\ASUS\IdeaProjects\blog\target\classes started by ASUS in C:\Users\ASUS\IdeaProjects\blog)
+2021-01-17 22:35:40.993 DEBUG 6652 --- [restartedMain] com.lin.blog.BlogApplication             : Running with Spring Boot v2.4.1, Spring v5.3.2
+2021-01-17 22:35:40.994  INFO 6652 --- [restartedMain] com.lin.blog.BlogApplication             : No active profile set, falling back to default profiles: default
+2021-01-17 22:35:43.685  INFO 6652 --- [restartedMain] com.lin.blog.BlogApplication             : Started BlogApplication in 3.131 seconds (JVM running for 4.206)
+2021-01-17 22:35:50.037 DEBUG 6652 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : ==>  Preparing: SELECT id,avatar,email,nickname,password,type,username,create_time,update_time FROM t_user WHERE (username = ? AND password = ?)
+2021-01-17 22:35:50.055 DEBUG 6652 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : ==> Parameters: root(String), 96e79218965eb72c92a549dd5a330112(String)
+2021-01-17 22:35:50.113 DEBUG 6652 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : <==      Total: 1
+2021-01-17 22:38:07.518  INFO 4848 --- [restartedMain] com.lin.blog.BlogApplication             : Starting BlogApplication using Java 1.8.0_191 on 林唯心 with PID 4848 (C:\Users\ASUS\IdeaProjects\blog\target\classes started by ASUS in C:\Users\ASUS\IdeaProjects\blog)
+2021-01-17 22:38:07.521 DEBUG 4848 --- [restartedMain] com.lin.blog.BlogApplication             : Running with Spring Boot v2.4.1, Spring v5.3.2
+2021-01-17 22:38:07.521  INFO 4848 --- [restartedMain] com.lin.blog.BlogApplication             : No active profile set, falling back to default profiles: default
+2021-01-17 22:38:10.218  INFO 4848 --- [restartedMain] com.lin.blog.BlogApplication             : Started BlogApplication in 3.088 seconds (JVM running for 3.962)
+2021-01-17 22:38:15.969 DEBUG 4848 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : ==>  Preparing: SELECT id,avatar,email,nickname,password,type,username,create_time,update_time FROM t_user WHERE (username = ? AND password = ?)
+2021-01-17 22:38:15.985 DEBUG 4848 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : ==> Parameters: root(String), 96e79218965eb72c92a549dd5a330112(String)
+2021-01-17 22:38:16.050 DEBUG 4848 --- [http-nio-8080-exec-5] com.lin.blog.dao.UserDao.selectOne       : <==      Total: 1
+2021-01-17 22:38:39.746 DEBUG 4848 --- [http-nio-8080-exec-1] com.lin.blog.dao.TypeDao.selectPage      : ==>  Preparing: SELECT COUNT(1) FROM t_type
+2021-01-17 22:38:39.746 DEBUG 4848 --- [http-nio-8080-exec-1] com.lin.blog.dao.TypeDao.selectPage      : ==> Parameters: 
+2021-01-17 22:38:39.787 DEBUG 4848 --- [http-nio-8080-exec-1] com.lin.blog.dao.TypeDao.selectPage      : ==>  Preparing: SELECT id,name FROM t_type LIMIT ?
+2021-01-17 22:38:39.788 DEBUG 4848 --- [http-nio-8080-exec-1] com.lin.blog.dao.TypeDao.selectPage      : ==> Parameters: 10(Long)
+2021-01-17 22:38:39.823 DEBUG 4848 --- [http-nio-8080-exec-1] com.lin.blog.dao.TypeDao.selectPage      : <==      Total: 10
+2021-01-17 22:38:46.030 DEBUG 4848 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==>  Preparing: SELECT COUNT(1) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-01-17 22:38:46.030 DEBUG 4848 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==> Parameters: 
+2021-01-17 22:38:46.075 DEBUG 4848 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name from t_blog b left outer join t_type t on b.type_id = t.id order by b.update_time desc LIMIT ?
+2021-01-17 22:38:46.075 DEBUG 4848 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : ==> Parameters: 10(Long)
+2021-01-17 22:38:46.127 DEBUG 4848 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogDao.getAdminQueryBlogs  : <==      Total: 1

@@ -1,10 +1,7 @@
 package com.lin.blog.pojo.model;
 
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,8 +19,9 @@ public class Comment {
     private String email;
     private String content;
     private String avatar;
-    @TableField(value = "createTime",jdbcType = JdbcType.TIMESTAMP)
+    @TableField(value = "create_time",jdbcType = JdbcType.TIMESTAMP,fill = FieldFill.INSERT)
     private Date createTime;
+
     private long blogId;
     private long parentCommentId;
     private String adminComment;

@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
@@ -38,6 +36,11 @@ public class BlogController {
         return "admin/blogs";
     }
 
+    /**
+     * 博客新增页面
+     * @param model model
+     * @return
+     */
     @RequestMapping("/blog/input")
     public String blogInputPage(Model model) {
         model.addAttribute("type", typeService.list());
@@ -45,10 +48,27 @@ public class BlogController {
         return "admin/blogs-input";
     }
 
-    //    博客新增
+    /**    博客新增接口
+     * @param blogAO 参数
+     * @param attributes
+     * @param session
+     * @return
+     */
     @PostMapping("/blogs")
     public String post(@Validated CreateBlogAO blogAO, RedirectAttributes attributes, HttpSession session){
-        blogService.CreateBlog(blogAO);
+        boolean b = blogService.CreateBlog(blogAO);
+        if (!b) {
+            attributes.addFlashAttribute("message", "发布失败");
+        }
+        return "redirect:/admin/blogs";
+    }
+    //    删除文章
+    @GetMapping("/blogs/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes attributes) {
+        boolean b = blogService.deleteBlog(id);
+        if (b) {
+            attributes.addFlashAttribute("message", "删除成功");
+        }   
         return "redirect:/admin/blogs";
     }
 }

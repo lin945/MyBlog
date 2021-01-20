@@ -54,4 +54,6 @@ public interface BlogService extends IService<Blog> {
      * @return
      */
     BolgAllInfoVO getBlogInfoById(long id);
+
+    boolean deleteBlog(long id);
 }

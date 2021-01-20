@@ -38,7 +38,6 @@ public class IndexController {
         BolgAllInfoVO blogInfoById = blogService.getBlogInfoById(id);
 //        List<Comment> comments = commentService.listCommentByBlogId(id);
 //        model.addAttribute("comments", comments);
-        System.out.println(blogInfoById);
         model.addAttribute("blog",blogInfoById);
         return "blog";
     }

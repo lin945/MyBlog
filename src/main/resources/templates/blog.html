@@ -74,7 +74,7 @@
         <div class=" ui attached padded segment ">
             <!--            正文-->
             <div class="typo typo-selection m-padded-lr-responsive m-padded-tb js-toc-content" id="content"
-                 th:text="${blog.getContent()}">
+                 th:utext="${blog.getContent()}">
                 <pre><code class="language-css">p {color: red}</code></pre>
                 <h1>中文网页重设与排版：<i class="serif">Typo.css</i></h1><br/>
 

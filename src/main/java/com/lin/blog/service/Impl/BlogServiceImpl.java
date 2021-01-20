@@ -75,4 +75,10 @@ public class BlogServiceImpl extends ServiceImpl<BlogDao, Blog> implements BlogS
         blogInfo.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
         return blogInfo;
     }
+
+    @Override
+    public boolean deleteBlog(long id) {
+        int i = baseMapper.deleteById(id);
+        return i==1;
+    }
 }

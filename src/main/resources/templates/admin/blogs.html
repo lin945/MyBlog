@@ -80,6 +80,12 @@
                 </div>
             </div>
         </form>
+        <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
+            发布失败
+        </div>
+        <div class="ui mini positive message" th:if="${#strings.isEmpty(message)}" >
+            发布成功
+        </div>
         <table class="ui table celled">
             <thead>
             <tr>
@@ -99,8 +105,8 @@
                 <td th:text="${blog.getRecommend()}">是</td>
                 <td th:text="${#dates.format(blog.getUpdateTime(),'yyyy-MM-dd HH:mm')}">2020-11-11 00:00</td>
                 <td>
-                    <a href="#" class="ui mini main-color button basic">编辑</a>
-                    <a href="#" class=" mini main-color-pink button basic ui">删除</a>
+                    <a href="#" class="ui mini main-color button basic" th:href="@{/admin/blogs/{id}/input(id=${blog.getId()})}">编辑</a>
+                    <a href="#" class=" mini main-color-pink button basic ui" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" onclick="return confirm('确定要删除该文章吗？三思啊! 删了可就没了！')">删除</a>
                 </td>
             </tr>
             </tbody>

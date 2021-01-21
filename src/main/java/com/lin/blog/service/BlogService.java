@@ -34,12 +34,14 @@ public interface BlogService extends IService<Blog> {
     boolean saveBlog(Blog blog);
 
     boolean CreateBlog(CreateBlogAO ao);
+
     /**
-     * 更新
-     * @param blog
+     *
+     * @param ao 实体
+     * @param id id
      * @return
      */
-    boolean updateBlog(Blog blog);
+    boolean updateBlog(CreateBlogAO ao,Long id);
 
     /**
      * id获取

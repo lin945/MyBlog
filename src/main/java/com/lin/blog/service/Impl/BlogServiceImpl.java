@@ -55,8 +55,10 @@ public class BlogServiceImpl extends ServiceImpl<BlogDao, Blog> implements BlogS
     }
 
     @Override
-    public boolean updateBlog(Blog blog) {
-        int i = baseMapper.updateById(blog);
+    public boolean updateBlog(CreateBlogAO ao,Long id) {
+        Blog blogById = getBlogById(id);
+        BeanUtils.copyProperties(ao, blogById);
+        int i = baseMapper.updateById(blogById);
         return i==1;
     }
 

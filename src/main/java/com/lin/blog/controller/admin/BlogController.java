@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author lin945
@@ -68,7 +70,26 @@ public class BlogController {
         boolean b = blogService.deleteBlog(id);
         if (b) {
             attributes.addFlashAttribute("message", "删除成功");
-        }   
+        }
+        return "redirect:/admin/blogs";
+    }
+    //    跳转编辑修改文章
+    @GetMapping("/blogs/{id}/input")
+    public String editInput(@PathVariable Long id, Model model) {
+        Blog blogById = blogService.getBlogById(id);
+        model.addAttribute("blog",blogById);
+        model.addAttribute("type", typeService.list());
+        return "admin/blogs-input";
+    }
+    //    编辑修改文章
+    @PostMapping("/blogs/{id}")
+    public String editPost(@Validated CreateBlogAO blogAO , RedirectAttributes attributes,@PathVariable Long id) {
+        boolean b = blogService.updateBlog(blogAO, id);
+        if(!b){
+            attributes.addFlashAttribute("message", "修改失败");
+        }else {
+            attributes.addFlashAttribute("message", "修改成功");
+        }
         return "redirect:/admin/blogs";
     }
 }

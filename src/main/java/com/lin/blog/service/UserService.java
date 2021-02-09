@@ -15,4 +15,6 @@ public interface UserService extends IService<User> {
      * @return
      */
     User checkUser(String userName,String password);
+
+    User getByName(String userName);
 }

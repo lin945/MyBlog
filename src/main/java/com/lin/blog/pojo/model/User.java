@@ -7,14 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.ibatis.type.JdbcType;
-
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_user")
-public class User {
+public class User  {
     private Long id;
     private String avatar;
     private String email;

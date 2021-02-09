@@ -24,4 +24,11 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                 .eq("password", MD5Utils.code(password));
         return baseMapper.selectOne(queryWrapper);
     }
+
+    @Override
+    public User getByName(String userName) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("username", userName);
+      return baseMapper.selectOne(queryWrapper);
+    }
 }

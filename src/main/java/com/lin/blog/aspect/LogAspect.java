@@ -41,15 +41,6 @@ public class LogAspect {
         log.info("request:{}", requestInfo);
     }
 
-    @After("log()")
-    public void doAfter() {
-        log.info("");
-    }
-
-    @AfterReturning(returning = "o", pointcut = "log()")
-    public void doAfterReturn(Object o) {
-        log.info("result:{}", o);
-    }
 
     @Data
     @AllArgsConstructor

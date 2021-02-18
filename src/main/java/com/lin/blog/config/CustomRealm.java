@@ -37,7 +37,6 @@ public class CustomRealm extends AuthorizingRealm {
         UsernamePasswordToken token1 = (UsernamePasswordToken) token;
         String username =token1.getUsername();
         String password = new String(token1.getPassword());
-        System.out.println(username+"/"+password);
         User user = userService.getByName(username);
         if (user==null) {
             return null;

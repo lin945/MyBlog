@@ -24,7 +24,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/admin")
 public class LoginController {
 
-
     @RequestMapping()
     public String loginPage() {
         return "admin/login";
@@ -62,6 +61,8 @@ public class LoginController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+        Subject lvSubject=SecurityUtils.getSubject();
+        lvSubject.logout();
         session.removeAttribute("user");
         return "redirect:/admin";
     }

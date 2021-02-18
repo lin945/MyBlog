@@ -24,6 +24,7 @@ public class WebSecurityConfig  {
         filterChainDefinitionMap.put("/", "anon");
         filterChainDefinitionMap.put("/admin/login", "anon");
         filterChainDefinitionMap.put("/admin/**", "authc");
+        filterChainDefinitionMap.put("/admin/logout", "logout");
         bean.setLoginUrl("/admin");
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return bean;
